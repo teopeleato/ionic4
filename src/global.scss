@@ -1,11 +1,138 @@
 // http://ionicframework.com/docs/theming/
-@import '~@ionic/angular/css/core.css';
-@import '~@ionic/angular/css/normalize.css';
-@import '~@ionic/angular/css/structure.css';
-@import '~@ionic/angular/css/typography.css';
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
 
-@import '~@ionic/angular/css/padding.css';
-@import '~@ionic/angular/css/float-elements.css';
-@import '~@ionic/angular/css/text-alignment.css';
-@import '~@ionic/angular/css/text-transformation.css';
-@import '~@ionic/angular/css/flex-utils.css';
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.red {
+  background-color: rgba(220, 83, 81, 1);
+}
+
+.green {
+  background-color: rgba(187, 225, 123, 1);
+}
+
+.blue {
+  background-color: rgba(131, 150, 225, 1);
+}
+
+.purple {
+  background-color: rgba(155, 121, 170, 1);
+}
+
+.yellow {
+  background-color: rgba(235, 229, 39, 1);
+}
+
+.violet {
+  background-color: rgba(213, 118, 211, 1);
+}
+
+.orange {
+  background-color: rgba(213, 151, 46, 1);
+}
+
+.turquoise {
+  background-color: rgba(105, 203, 217, 1);
+}
+
+img-prod {
+  height: 70vh;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+/// Check the browser supports flexbox wrap property
+/// the containing style rules will only be triggered on browsers
+/// that offer support for this feature
+@supports (flex-wrap: wrap) {
+  /// Parent container for the masonry tiles
+  /// Uses flex columns with a set height to create
+  /// a masonry interface effect
+  .wrapper {
+    width: 98.5%;
+    display: flex;
+    flex-flow: column wrap; /* Force column elements to wrap */
+    height: 100vw; /* Without the height property/value we get a single column / NO masonry! */
+
+    // The rules for each tile within the layout
+    section {
+      margin: 0 0.5em 0.5em 0;
+      padding: 1em;
+
+      img {
+        display: block;
+        margin: 0 auto 2em auto;
+        width: 90px;
+      }
+    }
+  }
+
+  /// Define height of parent container and width of each tile
+  /// for screen sizes above 1201 pixels in width
+  /// 4 column layout
+  @media only screen and (min-width: 1201px) {
+    .wrapper {
+      height: 100vw;
+
+      section {
+        width: 25%;
+      }
+    }
+  }
+
+  /// Define height of parent container and width of each tile
+  /// for screen sizes up to 1200 pixels in width
+  /// 3 column layout
+  @media only screen and (max-width: 1200px) {
+    .wrapper {
+      height: 150vw;
+
+      section {
+        width: 33.3%;
+      }
+    }
+  }
+
+  /// Define height of parent container and width of each tile
+  /// for screen sizes up to 900 pixels in width
+  /// 3 column layout
+  @media only screen and (max-width: 900px) {
+    .wrapper {
+      height: 220vw;
+    }
+  }
+
+  /// Define height of parent container and width of each tile
+  /// for screen sizes up to 700 pixels in width
+  /// 2 column layout
+  @media only screen and (max-width: 700px) {
+    .wrapper {
+      height: 450vw;
+
+      section {
+        width: 50%;
+      }
+    }
+  }
+
+  /// Define height of parent container and width of each tile
+  /// for screen sizes up to 600 pixels in width
+  /// 1 column layout
+  @media only screen and (max-width: 600px) {
+    .wrapper {
+      height: 950vw;
+
+      section {
+        width: 100%;
+      }
+    }
+  }
+}
