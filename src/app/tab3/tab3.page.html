@@ -5,5 +5,41 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+  <ion-select (ionChange)="getAemetUrl(placeId)" [(ngModel)]="placeId" cancelText="Cancelar" okText="Aceptar" placeholder="Cambiar localidad" selectedText="">
+    <ion-select-option de value="22125">Huesca</ion-select-option>
+    <ion-select-option value="50297">Zaragoza</ion-select-option>
+    <ion-select-option value="44216">Teruel</ion-select-option>
+  </ion-select>
+  <ion-slides [options]="sliderConfig" loop>
+    <ion-slide *ngFor="let dia of arrayDias">
+      <ion-card>
+        <ion-card-header color="secondary">
+          <ion-card-subtitle>
+            {{dia?.fecha}}
+          </ion-card-subtitle>
+          <ion-card-title>
+            {{placeName}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <span class="tmax">
+            {{dia?.temperatura.maxima}}</span>
+          <span class="tmin">
+            {{dia?.temperatura.minima}}</span>
+        </ion-card-content>
+        <ion-card-content [ngSwitch]="dia?.estadoCielo[0].descripcion">
+          <div *ngSwitchCase="'Despejado'"><img src="../../assets/img/weather/despejado.png"/></div>
+          <div *ngSwitchCase="'Intervalos' nubosos"><img src="../../assets/img/weather/sol_y_nubes.png"/></div>
+          <div *ngSwitchCase="'Lluvioso'"><img src="../../assets/img/weather/lluvioso.png"/></div>
+          <div *ngSwitchCase="'Nublado'"><img src="../../assets/img/weather/nublado.png"/></div>
+          <div *ngSwitchCase="'Tormenta'"><img src="../../assets/img/weather/tormenta.png"/></div>
+          <div *ngSwitchDefault><img src="../../assets/img/weather/sol_y_nubes.png"/></div>
+        </ion-card-content>
+        <ion-card-content class="descripcion">
+          {{dia?.estadoCielo[0].descripcion}}
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
