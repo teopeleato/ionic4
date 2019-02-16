@@ -1,32 +1,31 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <!-- <ion-back-button text="Volver" defaultHref="tab2"></ion-back-button> -->
-      <ion-button href="tabs/tab2"
-        ><ion-icon name="arrow-back"></ion-icon> Volver</ion-button
-      >
+      <ion-button href="tabs/tab2">
+        <ion-icon name="arrow-back"></ion-icon>Volver</ion-button>
+      <!-- <ion-back-button>Volver</ion-back-button> -->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
   <ion-card>
     <ion-card-header>
       <ion-card-content>
-        <img class="img-prod" src="assets/products/{{ id }}.jpg" />
+        <img src="assets/products/{{ id }}.jpg"/>
       </ion-card-content>
-      <ion-card-subtitle
-        ><h3>{{ price }} €</h3>
+      <ion-card-subtitle>
+        <h3>
+          {{ price }}
+          €</h3>
       </ion-card-subtitle>
-      <ion-card-title
-        ><h1>{{ name }}</h1></ion-card-title
-      >
+      <ion-card-title>
+        <h1>
+          {{ name }}</h1>
+      </ion-card-title>
     </ion-card-header>
-
     <ion-card-content>
       {{ text }}
     </ion-card-content>
-
     <ion-card-content>
       <ion-button>Comprar</ion-button>
     </ion-card-content>

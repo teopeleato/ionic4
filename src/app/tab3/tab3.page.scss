@@ -1,6 +1,11 @@
 ion-slide {
   background-color: #fff;
   color: #000;
+  /* height: 50vh; */
+  flex-direction: column;
+}
+ion-card {
+  width: 65%;
 }
 .tmax {
   color: red;
@@ -13,4 +18,9 @@ ion-slide {
 .descripcion {
   color: #000;
   font-weight: 300;
+}
+.card-weather img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
 }
